@@ -21,7 +21,7 @@ Read more about the [motivations and history](http://rauchg.com/slackin) behind 
 
 #### Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rauchg/slackin/tree/0.8.2)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rauchg/slackin/tree/master)
 
 #### Azure
 
@@ -33,7 +33,10 @@ Read more about the [motivations and history](http://rauchg.com/slackin) behind 
 
 #### Cloud Foundry
 
-[Follow these instructions.](https://github.com/pivotal-cf/slackin/wiki/Cloud-Foundry)
+##### IBM Bluemix
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/rauchg/slackin)
+
+For other CloudFoundry providers, [follow these instructions.](https://github.com/pivotal-cf/slackin/wiki/Cloud-Foundry)
 
 #### Custom
 
@@ -46,7 +49,7 @@ $ slackin "your-team-id" "your-slack-token"
 
 Your team id is what you use to access your login page on Slack (eg: https://**{this}**.slack.com).
 
-You can find your API token at [api.slack.com/web](https://api.slack.com/web) – note that the user you use to generate the token must be an admin. You need to create a dedicated `@slackin-inviter` user (or similar), mark that user an admin, and use a token from that dedicated admin user.
+You can find or generate your API test token at [api.slack.com/web](https://api.slack.com/web) – note that the user you use to generate the token must be an admin. You need to create a dedicated `@slackin-inviter` user (or similar), mark that user an admin, and use a test token from that dedicated admin user.  Note that test tokens have actual permissions so you do not need to create an OAuth 2 app. Also check out the Slack docs on [generating a test token](https://get.slack.help/hc/en-us/articles/215770388-Creating-and-regenerating-API-tokens).
 
 The available options are:
 
@@ -116,7 +119,7 @@ a `Function` that creates a `HTTP.Server` instance
 that you can manipulate.
 
 ```js
-require('slackin')({
+require('slackin').default({
   token: 'yourtoken', // required
   interval: 1000,
   org: 'your-slack-subdomain', // required
